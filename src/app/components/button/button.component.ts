@@ -44,22 +44,5 @@ export class ButtonComponent implements OnInit {
   }
 
 
-/*
-  private getStyle(SP_status : boolean) {
-
-    if(SP_status === true){
-      const style = `font-size: 0.875em; color: #000000;`;
-      return this.sanitizer.bypassSecurityTrustStyle(style);
-    }else{
-      const style = `font-size: 0.875em; font-weight: bold; color: #000000;`;
-      return this.sanitizer.bypassSecurityTrustStyle(style);
-    }
-
-  }
-  
-  [style]="getStyle(text.SP_status)" 
-  */
-
-
 
 }

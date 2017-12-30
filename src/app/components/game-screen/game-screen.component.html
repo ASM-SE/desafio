@@ -1,5 +1,5 @@
 
-<app-player></app-player>
+<app-player [playerOne]="playerOne" [playerTwo]="playerTwo"></app-player>
 
 <div class="row">
 
@@ -11,7 +11,6 @@
   
     <div class="col-md-6 content-center-align">
   
-
           <app-button-player [data]="playerTwo" (event)="makeAction($event)"></app-button-player>
   
     </div>                
@@ -22,4 +21,5 @@
 <div class="content-center-align">
       
       <app-button-player [data]="restart" (event)="makeAction($event)"></app-button-player>
+
 </div> 

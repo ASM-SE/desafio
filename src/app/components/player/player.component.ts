@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 
 
 import { Player } from '../../schemas/player.schema';
@@ -11,27 +11,38 @@ import { life } from '../../shared/services/shared.service';
   styleUrls: ['./player.component.css']
 })
 export class PlayerComponent implements OnInit {
-  public playerOne : Player = {
-    id: 'playerone',
-    name: 'Player 1',
-    life: life,
-    wins: 0,
-    defeats: 0
-  }
 
-  public playerTwo : Player = {
-    id: 'playertwo',
-    name: 'Player 2',
-    life: life,
-    wins: 0,
-    defeats: 0    
-  }
 
-  constructor() { }
+  @Input() public playerOne : Player;
+
+  @Input() public playerTwo : Player;
+
+
+  
+  public playerOneIni : Player;
+
+  public playerTwoIni : Player;
+
+  constructor() { 
+
+    this.playerOneIni = this.playerOne;
+    this.playerTwoIni = this.playerTwo;
+
+  }
 
   ngOnInit() {
 
+    this.playerOneIni = this.playerOne;
+    this.playerTwoIni = this.playerTwo;
+  }
+  
 
+  private updatePlayer(player: Player){
+      if(player.id===this.playerOne.id){
+        this.playerOneIni = player;
+      }else{
+        this.playerTwoIni = player;
+      }
   }
 
 }

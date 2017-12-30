@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Player } from '../../schemas/player.schema';
 
-import { life } from '../../shared/services/shared.service';
+import { life, damage } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-game-screen',
@@ -37,7 +37,29 @@ export class GameScreenComponent implements OnInit {
   }
 
   public makeAction(eventdata: any){
-      console.log(eventdata);
+     
+      if(eventdata != true){
+
+        if((eventdata.id === this.playerOne.id) && (this.playerTwo.life > 0) && (this.playerOne.life > 0)){ 
+          this.playerTwo.life -= damage;
+          if(this.playerTwo.life === 0){
+            console.log(this.playerOne.name + 'Win!');
+          }
+        }else if((eventdata.id === this.playerTwo.id) && (this.playerOne.life > 0) && (this.playerTwo.life > 0)){
+          this.playerOne.life -= damage;
+          if(this.playerTwo.life === 0){
+            console.log(this.playerOne.name + 'Win!');
+          }
+        }
+
+      }else{
+        
+        this.playerOne.life = life;
+        this.playerTwo.life = life;
+
+      }
+
+ 
   }
 
 
