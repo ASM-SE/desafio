@@ -31,6 +31,8 @@ export class GameScreenComponent implements OnInit {
 
   public restart : string = 'Restart';
 
+  private winner : string = '';
+
   constructor() { }
 
   ngOnInit() {
@@ -43,12 +45,12 @@ export class GameScreenComponent implements OnInit {
         if((eventdata.id === this.playerOne.id) && (this.playerTwo.life > 0) && (this.playerOne.life > 0)){ 
           this.playerTwo.life -= damage;
           if(this.playerTwo.life === 0){
-            console.log(this.playerOne.name + 'Win!');
+            this.winner = this.playerOne.name + ' Win!';
           }
         }else if((eventdata.id === this.playerTwo.id) && (this.playerOne.life > 0) && (this.playerTwo.life > 0)){
           this.playerOne.life -= damage;
-          if(this.playerTwo.life === 0){
-            console.log(this.playerOne.name + 'Win!');
+          if(this.playerOne.life === 0){
+            this.winner = this.playerTwo.name + ' Win!';
           }
         }
 
@@ -56,6 +58,7 @@ export class GameScreenComponent implements OnInit {
         
         this.playerOne.life = life;
         this.playerTwo.life = life;
+        this.winner = '';
 
       }
 

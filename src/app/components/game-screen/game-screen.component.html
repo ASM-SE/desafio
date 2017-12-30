@@ -23,3 +23,9 @@
       <app-button-player [data]="restart" (event)="makeAction($event)"></app-button-player>
 
 </div> 
+
+<div *ngIf="winner" class="content-center-align">
+      
+      <h1>{{winner}}</h1>
+
+</div>
