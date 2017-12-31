@@ -16,40 +16,44 @@ export class ButtonComponent implements OnInit {
 
   private buttonText : string;
   
+
   constructor(private sanitizer : DomSanitizer) { }
 
-  ngOnInit() {
-
-
-  }
+  ngOnInit() {  }
 
   private action(data : any) : void{
 
-    if(data.name){    
-      this.event.emit(this.data);
-    }else if(data === 'Restart'){
-      this.event.emit('restart');    
-    }else if(data === 'Start'){
-      this.event.emit('start'); 
-    }
+      if(data.name){    
+          this.event.emit(this.data);
+      }else if(data === 'Restart'){
+          this.event.emit('restart');
+      }else if(data === 'Start'){
+          this.event.emit('start'); 
+      }
 
   }
 
   private setButtonOptions(data : any) {
-    console.log(data);
-      //setting button text
-      if(data.name){    
-        this.buttonText = this.data.name;
-        const classStyle = `btn btn-primary`;
-        return this.sanitizer.bypassSecurityTrustStyle(classStyle);
+
+      //setting button text and style
+      if(data.name){   
+
+          this.buttonText = this.data.name;
+          const classStyle = `btn btn-primary`;
+          return this.sanitizer.bypassSecurityTrustStyle(classStyle);
+
       }else if(data === 'Restart'){
-        this.buttonText = this.data;
-        const classStyle = `btn btn-danger`;
-        return this.sanitizer.bypassSecurityTrustStyle(classStyle);        
+
+          this.buttonText = this.data;
+          const classStyle = `btn btn-danger`;
+          return this.sanitizer.bypassSecurityTrustStyle(classStyle);  
+
       }else  if(data === 'Start'){
-        this.buttonText = this.data;
-        const classStyle = `btn btn-success`;
-        return this.sanitizer.bypassSecurityTrustStyle(classStyle);         
+
+          this.buttonText = this.data;
+          const classStyle = `btn btn-success`;
+          return this.sanitizer.bypassSecurityTrustStyle(classStyle); 
+                  
       }
   }
 

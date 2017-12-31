@@ -1,35 +1,14 @@
 
-<div class="row">
 
-  <div class="col-md-6">
-
-    <div class="content-center-align">
-      <h2>{{playerOneIni.name}}</h2>
-      <p><label>Life </label> {{playerOneIni.life}}</p>
-      <p><label>Wins </label> {{playerOneIni.wins}}</p>
-      <p><label>Defeats </label> {{playerOneIni.defeats}}</p>
+    <div>
+        <h2>{{player.name}}</h2>  
+        <div>
+                <span>HP</span> {{player.hp}}% |
+                <label>Wins </label> {{player.wins}} |
+                <label>Defeats </label> {{player.defeats}} 
+                <img class="player-kanban" [src]="setImage(player.hp)" alt="Game logo">
+        </div>  
     </div>
       
-
-
-  </div>
-
-  <div class="col-md-6">
-
-      <div class="content-center-align">
-          <h2>{{playerTwoIni.name}}</h2>
-          <p><label>Life </label> {{playerTwoIni.life}}</p>
-          <p><label>Wins </label> {{playerTwoIni.wins}}</p>
-          <p><label>Defeats </label> {{playerTwoIni.defeats}}</p>
-        </div>
-
-  
-
-  </div>                
-
-
-
-
-</div>    
 
 

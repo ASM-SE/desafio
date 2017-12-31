@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div class="main">
+        <div class="row">
+                    <div class="col-md-6">                      
+                            <app-player [player]="playerOne"></app-player>
+                            <app-damage-button [player]="playerTwo" (event)="finishGame($event)"></app-damage-button>
+                    </div>
+                    <div class="col-md-6">
+                            <app-player [player]="playerTwo"></app-player>
+                            <app-damage-button [player]="playerOne" (event)="finishGame($event)"></app-damage-button>
+                    </div>                
+        </div>   
+    </div>
+  </div>

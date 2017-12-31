@@ -4,7 +4,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Player } from '../../schemas/player.schema';
 
-import { life, damage } from '../../shared/services/shared.service';
+import { hp, damage } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-game-screen',
@@ -18,7 +18,7 @@ export class GameScreenComponent implements OnInit {
   public playerOne : Player = {
     id: 'playerone',
     name: 'Player 1',
-    life: life,
+    hp: hp,
     wins: 0,
     defeats: 0
   }
@@ -26,7 +26,7 @@ export class GameScreenComponent implements OnInit {
   public playerTwo : Player = {
     id: 'playertwo',
     name: 'Player 2',
-    life: life,
+    hp: hp,
     wins: 0,
     defeats: 0    
   }
@@ -45,11 +45,9 @@ export class GameScreenComponent implements OnInit {
   @HostListener('window:keypress', ['$event']) keyEvent(event: KeyboardEvent){
 
         if ((event.key === "s")&&(!this.winner)) {
-
           this.makeAction(this.playerOne);
 
         }else if ((event.key === "l")&&(!this.winner)) {
-
           this.makeAction(this.playerTwo);
 
         }
@@ -59,53 +57,46 @@ export class GameScreenComponent implements OnInit {
 
   /* Button action function according to the eventdata parameter value:
                  (1) if is player data, make damage or, 
-                 (2) if is true value restart the game.*/
+                 (2) if is restart value, restart the game or,
+                 (3) if is start value, start the game.*/
   public makeAction(eventdata: any){
      
       if((eventdata != 'start')&&(eventdata != 'restart')){
 
-        if((eventdata.id === this.playerOne.id) && (this.playerTwo.life > 0) && (this.playerOne.life > 0)){ 
-          
-          this.playerTwo.life -= damage;
-          
-          if(this.playerTwo.life === 0){
-              this.winner = this.playerOne.name + ' Win!';
-              this.showGameScreen = false;
-          }
+            if((eventdata.id === this.playerOne.id) && (this.playerTwo.hp > 0) && (this.playerOne.hp > 0)){ 
+              
+                this.playerTwo.hp -= damage;
+                
+                if(this.playerTwo.hp === 0){
+                    this.winner = this.playerOne.name + ' Win!';
+                    this.showGameScreen = false;
+                }
 
-        }else if((eventdata.id === this.playerTwo.id) && (this.playerOne.life > 0) && (this.playerTwo.life > 0)){
-          
-          this.playerOne.life -= damage;
+            }else if((eventdata.id === this.playerTwo.id) && (this.playerOne.hp > 0) && (this.playerTwo.hp > 0)){
+              
+                this.playerOne.hp -= damage;
 
-          if(this.playerOne.life === 0){
-              this.winner = this.playerTwo.name + ' Win!';
-              this.showGameScreen = false;              
-          }
-          
-        }
+                if(this.playerOne.hp === 0){
+                    this.winner = this.playerTwo.name + ' Win!';
+                    this.showGameScreen = false;              
+                }
+              
+            }   
 
       }else if(eventdata === 'restart'){
         
+            this.playerOne.hp = hp;
+            this.playerTwo.hp = hp;
+            this.winner = null;   
+            this.showGameScreen = true; 
+            this.gameStart = true; 
 
-        if(this.winner != null){
-          this.playerOne.life = life;
-          this.playerTwo.life = life;
-          this.winner = null;   
-          this.showGameScreen = true; 
-          this.gameStart = true; 
-        }else{
-          this.playerOne.life = life;
-          this.playerTwo.life = life;
-          this.winner = null;   
-          this.showGameScreen = true; 
-          this.gameStart = true; 
-        }   
 
 
       }else if(eventdata === 'start'){
 
-        this.showGameScreen = true;
-        this.gameStart = true;
+            this.showGameScreen = true;
+            this.gameStart = true;
 
       }
 

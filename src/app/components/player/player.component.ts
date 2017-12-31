@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 import { Player } from '../../schemas/player.schema';
 
-import { life } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-player',
@@ -12,37 +11,17 @@ import { life } from '../../shared/services/shared.service';
 })
 export class PlayerComponent implements OnInit {
 
+  @Input() public player : Player;
 
-  @Input() public playerOne : Player;
+  constructor() { }
 
-  @Input() public playerTwo : Player;
-
-
+  ngOnInit() { }
   
-  public playerOneIni : Player;
+  private setImage(hp : number) : string {
+    if(hp >= 0){
+        return "./assets/images/"+hp+".png";
+    }
 
-  public playerTwoIni : Player;
-
-  constructor() { 
-
-    this.playerOneIni = this.playerOne;
-    this.playerTwoIni = this.playerTwo;
-
-  }
-
-  ngOnInit() {
-
-    this.playerOneIni = this.playerOne;
-    this.playerTwoIni = this.playerTwo;
-  }
-  
-
-  private updatePlayer(player: Player){
-      if(player.id===this.playerOne.id){
-        this.playerOneIni = player;
-      }else{
-        this.playerTwoIni = player;
-      }
   }
 
 }

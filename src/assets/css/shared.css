@@ -1,6 +1,45 @@
+body{ background-color: #161616;
+      font-family: 'Myriad Pro', sans-serif;
+      font: 100%;
+}
 
 .content-center-align {
     margin-top:auto;
     margin-bottom:auto;
     text-align:center;
+}
+
+.container div{
+    margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
+    background-color: #161616;
+}
+
+.container li{
+    list-style-type:none;
+    cursor: pointer;
+    text-align:center;
+    color: #007acc;
+}
+
+.container  li:hover {
+    color: #d0e6fb;
+    text-decoration: none; }
+
+.font-list-big{
+    font-size: 1.88em;
+}
+
+
+.logo{
+    margin-top: 20%;
+    margin-bottom: 10%;
+}
+
+.container .main{
+    margin-top: 20%;
+    margin-bottom: 10%;
+    background-color: #161616;
+    color: #007acc;
 }

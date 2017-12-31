@@ -1,9 +1,10 @@
-export class Player{
+export class Score{
 
-    id: string;
-    name: string;
+    name: String;
     hp: number;
     wins: number;
     defeats: number;
+
+
 
 }
