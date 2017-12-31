@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { DataService } from '../../shared/services/data/data.service';
+
 import { Player } from '../../schemas/player.schema';
-import { hp } from '../../shared/services/shared.service';
+import { hp, buttonQuitLabel } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-game',
@@ -12,32 +14,66 @@ export class GameComponent implements OnInit {
 
   @Input() public player : Player;
 
-  //Setting players data
-  public playerOne : Player = {
-    id: 'playerone',
-    name: 'Player 1',
-    hp: hp,
-    wins: 0,
-    defeats: 0
-  }
+  @Input() public gameStatus : boolean = false;
+  
+  @Input() public winner : string;
 
-  public playerTwo : Player = {
-    id: 'playertwo',
-    name: 'Player 2',
-    hp: hp,
-    wins: 0,
-    defeats: 0    
-  }
+  public playerOne : Player;
+  public playerTwo : Player; 
+  public buttonQuit : string = buttonQuitLabel;
 
-  constructor() { }
+  constructor(private dataService: DataService) {     
+              this.resetPlayerOptions(0,0,0,0); }
 
   ngOnInit() {
+    this.gameStatus = this.dataService.booleanData;
+    //this.resetPlayerOptions(0,0,0,0);
   }
 
-  public finishGame(player : Player){
+  private resetPlayerOptions(winsPlayerOne:number, defeatsPlayerOne:number,
+                             winsPlayerTwo:number, defeatsPlayerTwo:number) : void{
+      this.playerOne = {
+        id: 'playerone',
+        name: 'Player 1',
+        hp: hp,
+        wins: winsPlayerOne,
+        defeats: defeatsPlayerOne,
+        image: "./assets/images/100.png"
+      }
+      this.playerTwo = {
+        id: 'playertwo',
+        name: 'Player 2',
+        hp: hp,
+        wins: winsPlayerTwo,
+        defeats: defeatsPlayerTwo,
+        image:"./assets/images/100.png"
+      }
+    
+  }
 
-    console.log(player);
-  
+  private endGame(status : boolean){
+    this.gameStatus = status;
+    this.winner = this.setWinner();
+  }
+
+  private restartGame(status : boolean){
+      this.gameStatus = status;
+      this.winner = '';
+      this.resetPlayerOptions(this.playerOne.wins,this.playerOne.defeats,this.playerTwo.wins,this.playerTwo.defeats);
+  }
+
+  private setWinner() : string{
+    if(this.playerOne.hp === 0){
+        this.playerTwo.wins ++;
+        this.playerOne.defeats ++;
+        this.playerTwo.image = "./assets/images/p2win.png";
+      return this.playerTwo.name;
+    }else{
+        this.playerOne.wins ++;
+        this.playerTwo.defeats ++;
+        this.playerOne.image = "./assets/images/p1win.png"; 
+      return this.playerOne.name;
+    }
   }
 
 

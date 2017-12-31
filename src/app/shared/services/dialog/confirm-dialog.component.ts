@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'confirm-dialog',
     template: `
-        <div class="content-center-align">
+        <div class="teste">
         <p autofocus><b>{{ title }}</b></p>
         <p>{{ message }}</p>
         <button type="button" class="btn btn-danger" (click)="dialogRef.close(true)">{{ button1 }}</button>

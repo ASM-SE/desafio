@@ -5,8 +5,7 @@ import { DialogsService } from '../../shared/services/dialog/dialogs.service';
 import { Score } from '../../schemas/score.schema';
 
 import { buttonStartLabel, buttonRestartLabel, 
-         buttonInstructionsLabel, buttnScoresLabel, 
-         instructionsText, logoImagePath } from '../../shared/services/shared.service';
+         buttonInstructionsLabel, buttnScoresLabel, logoImagePath } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'app-score',

@@ -9,7 +9,7 @@ export class DialogsService {
 
     constructor(private dialog: MatDialog) { }
 
-    public confirm(title: string, message: string, button1: string, button2: string): Observable<boolean> {
+    public confirm(title: string, message: string,  button1: string, button2: string): Observable<boolean> {
         let dialogRef: MatDialogRef<ConfirmDialog>;
         dialogRef = this.dialog.open(ConfirmDialog);
         dialogRef.componentInstance.title = title;

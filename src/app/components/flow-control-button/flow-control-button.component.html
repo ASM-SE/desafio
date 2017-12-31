@@ -1,2 +1,2 @@
 
-<button type="button" class="btn btn-danger" (click)="restart(gameStatus)">{{buttonLabel}}</button>
+<button type="button" [class]="setStyle(status,winner)" (click)="action(status)" >{{buttonLabel}}</button>

@@ -5,5 +5,6 @@ export class Player{
     hp: number;
     wins: number;
     defeats: number;
+    image: string;
 
 }

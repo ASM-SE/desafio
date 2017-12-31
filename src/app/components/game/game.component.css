@@ -1,0 +1,10 @@
+.links{
+    margin-top: 3%;
+    cursor: pointer;
+    text-align:center;
+    color: #007acc;
+}
+
+.links:hover{
+    color: #d0e6fb;
+    text-decoration: none; }

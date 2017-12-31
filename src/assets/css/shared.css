@@ -9,6 +9,7 @@ body{ background-color: #161616;
     text-align:center;
 }
 
+
 .container div{
     margin-top:auto;
     margin-bottom:auto;
@@ -43,3 +44,9 @@ body{ background-color: #161616;
     background-color: #161616;
     color: #007acc;
 }
+
+
+.main hr{
+    border-color: #007acc;
+}
+

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-
 import { Player } from '../../schemas/player.schema';
 
 
@@ -17,11 +16,7 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit() { }
   
-  private setImage(hp : number) : string {
-    if(hp >= 0){
-        return "./assets/images/"+hp+".png";
-    }
 
-  }
+  
 
 }
