@@ -1,11 +1,11 @@
-import { MatDialogRef } from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Component } from '@angular/core';
 
 @Component({
     selector: 'confirm-dialog',
     template: `
         <div class="content-center-align">
-        <p autofocus><b>{{ title }}</b></p>
+        <p><b>{{ title }}</b></p>
         <p>{{ message }}</p>
         <button type="button" class="btn btn-danger" (click)="dialogRef.close(true)">{{ button1 }}</button>
         <button type="button" class="btn btn-success" (click)="dialogRef.close(false)">{{ button2 }}</button> 

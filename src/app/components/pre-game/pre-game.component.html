@@ -2,7 +2,7 @@
 
 <ul>
     <li>
-        <p><app-flow-control-button [gameStarted]="gameStatus" (event)="goGame($event)"></app-flow-control-button></p>
+        <p><app-flow-control-button [attr.gameStarted]="gameStarted" (event)="goGame($event)"></app-flow-control-button></p>
     </li>
     <li>
         <a (click)="showHowToPlay()">{{btnInstructions}}</a>

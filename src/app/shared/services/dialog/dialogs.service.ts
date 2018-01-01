@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Rx';
 import { ConfirmDialog } from './confirm-dialog.component';
 import { ConfirmInputDialog } from './confirm-input-dialog.component';
 import { InformationDialog } from './information-dialog.component';
-import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -40,7 +40,7 @@ export class DialogsService {
         let dialogRef: MatDialogRef<InformationDialog>;
         dialogRef = this.dialog.open(
             InformationDialog , 
-            {height: '280px',width: '500px', autoFocus: false}
+            {height: '280px',width: '500px'}
         );
         dialogRef.componentInstance.title = title;
         dialogRef.componentInstance.message = message;

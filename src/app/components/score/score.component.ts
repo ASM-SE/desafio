@@ -20,15 +20,18 @@ export class ScoreComponent implements OnInit {
       this.playerScores = this.getScores();  
   }
 
+  // Função que navega para a página inicial
   public back() : void {
       this.router.navigate(['home']);
   }
 
-  private getScores() : Array<Score> {
+  // Função que popula as scores salvas no localStorage
+  public getScores() : Array<Score> {
       return JSON.parse(localStorage.getItem('scores'));    
   }
 
-  private cleanScores() : void {
+  // Função que excluí todas as scores do localStorage
+  public cleanScores() : void {
       var result: Boolean = false;
       this.dialogService.confirm('Clean Scores', 'Are you sure do you want clean the score?','Yes','No')
                         .subscribe(res => {result = res;

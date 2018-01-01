@@ -5,11 +5,12 @@ import { translations } from '../../shared/services/translations.service';
 @Component({
   selector: 'app-flow-control-button',
   templateUrl: './flow-control-button.component.html',
-  styleUrls: ['./flow-control-button.component.css']
+  styleUrls: ['./flow-control-button.component.css'],
 })
 
   export class FlowControlButtonComponent {
 
+  
   @Input() public gameStarted : boolean;
   @Input() public winner : string;
   @Output() public event: EventEmitter<any> = new EventEmitter();
@@ -33,8 +34,8 @@ import { translations } from '../../shared/services/translations.service';
       return this.sanitizer.bypassSecurityTrustStyle(classStyle);     
   }
 
-  public action(status : boolean) : void {
-      if(status != true){
+  public action(gameStatus : boolean) : void {
+      if(gameStatus != true){
           this.start();
       }else{
           this.restart();
