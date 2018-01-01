@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer  } from '@angular/platform-browser';
-
-import { buttonStartLabel, buttonRestartLabel, buttonStartAgainLabel } from '../../shared/services/shared.service';
+import { translations } from '../../shared/services/translations.service';
 
 @Component({
   selector: 'app-flow-control-button',
@@ -9,53 +8,45 @@ import { buttonStartLabel, buttonRestartLabel, buttonStartAgainLabel } from '../
   styleUrls: ['./flow-control-button.component.css']
 })
 
-  export class FlowControlButtonComponent implements OnInit {
+  export class FlowControlButtonComponent {
 
-
-  @Input() public status : boolean;
-
+  @Input() public gameStarted : boolean;
   @Input() public winner : string;
-
   @Output() public event: EventEmitter<any> = new EventEmitter();
 
-  private buttonLabel : string;
+  private btnLabel : string;
 
   constructor(private sanitizer : DomSanitizer) { }
 
-  ngOnInit() { }
-
-  //setting button label and style
   private setStyle(gameStatus : boolean, winner : string) {
-      console.log(winner);
-    let classStyle : string;
-    if((gameStatus != true)&&(!winner)){   
-        this.buttonLabel = buttonStartLabel;
-        classStyle = `btn btn-primary`;        
-    }else  if((gameStatus != false)&&(!winner)){   
-        this.buttonLabel = buttonRestartLabel;
-        classStyle = `btn btn-danger`;
-    }else{
-        this.buttonLabel = buttonStartAgainLabel;
-        classStyle = `btn btn-success`;       
-    }
-    return this.sanitizer.bypassSecurityTrustStyle(classStyle);     
+      let classStyle : string;
+      if((gameStatus != true)&&(!winner)){   
+          this.btnLabel = translations.buttons.start;
+          classStyle = `btn btn-primary`;        
+      }else  if((gameStatus != false)&&(!winner)){   
+          this.btnLabel = translations.buttons.restart;
+          classStyle = `btn btn-danger`;
+      }else{
+          this.btnLabel = translations.buttons.startagain;
+          classStyle = `btn btn-success`;       
+      }
+      return this.sanitizer.bypassSecurityTrustStyle(classStyle);     
   }
 
   public action(status : boolean) : void {
-    if(status != true){
-        this.start();
-    }else{
-        this.restart();
-    }
+      if(status != true){
+          this.start();
+      }else{
+          this.restart();
+      }
   }
 
   public start() : void {
-    this.event.emit(true);  
+      this.event.emit(true);  
   }
 
   public restart() : void {
-    this.event.emit(true);
+      this.event.emit(true);
   }
-
 
 }

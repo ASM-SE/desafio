@@ -1,8 +1,14 @@
-    <img  [class]="logoImage.style" [src]="logoImage.image" alt="Game logo">
+<img  class="logo" [src]="imgLogo" alt="Game logo">
 
-    <ul>
-        <li><p><app-flow-control-button [status]="gameStatus" (event)="goGame($event)"></app-flow-control-button></p></li>
-        <li><a (click)="showHowToPlay()">{{buttonInstructionsLabel}}</a></li>
-        <li><a (click)="showScores()">{{buttonScoresLabel}}</a></li>
-    </ul>
+<ul>
+    <li>
+        <p><app-flow-control-button [gameStarted]="gameStatus" (event)="goGame($event)"></app-flow-control-button></p>
+    </li>
+    <li>
+        <a (click)="showHowToPlay()">{{btnInstructions}}</a>
+    </li>
+    <li>
+        <a (click)="showScores()">{{btnScores}}</a>
+    </li>
+</ul>
 

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'confirm-dialog',
     template: `
-        <div class="teste">
+        <div class="content-center-align">
         <p autofocus><b>{{ title }}</b></p>
         <p>{{ message }}</p>
         <button type="button" class="btn btn-danger" (click)="dialogRef.close(true)">{{ button1 }}</button>
@@ -18,7 +18,7 @@ export class ConfirmDialog {
     public message: string;
     public button1: string;
     public button2: string;
-
+    public name: string;
     constructor(public dialogRef: MatDialogRef<ConfirmDialog>) {
 
     }

@@ -1,21 +1,22 @@
 
 <div class="container">
     <div class="main">
-        <div class="row">
-                    <div class="col-md-6">                      
-                            <app-player [player]="playerOne"></app-player>
-                            <app-damage-button [player]="playerTwo" [status]="gameStatus" (event)="endGame($event)"></app-damage-button>
-                    </div>
-                    <div class="col-md-6">
-                            <app-player [player]="playerTwo"></app-player>
-                            <app-damage-button [player]="playerOne" [status]="gameStatus" (event)="endGame($event)"></app-damage-button>
-                    </div>                
-        </div>  
-        <app-flow-control-button [status]="gameStatus" [winner]="winner" (event)="restartGame($event)"></app-flow-control-button> 
-        <p class="links">
-            <a (click)="quitGame()">{{buttonQuit}}</a>
-        </p>
-    </div>
 
-  </div>
+        <div class="row">
+                <div class="col-md-6">                      
+                        <app-player [player]="playerOne"></app-player>
+                        <app-damage-button [player]="playerTwo" [gameStarted]="gameStarted" [hasQuitDialog]="hasQuitDialog" (event)="endGame($event)"></app-damage-button>
+                </div>
+                <div class="col-md-6">
+                        <app-player [player]="playerTwo"></app-player>
+                        <app-damage-button [player]="playerOne" [gameStarted]="gameStarted" [hasQuitDialog]="hasQuitDialog" (event)="endGame($event)"></app-damage-button>
+                </div>                
+        </div>  
+
+        <app-flow-control-button [gameStarted]="gameStarted" [winner]="winner" (event)="restartGame($event)"></app-flow-control-button> 
+        
+        <p class="links"><a (click)="quitGame()">{{btnQuit}}</a></p>
+
+    </div>
+</div>
 

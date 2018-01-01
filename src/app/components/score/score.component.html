@@ -1,47 +1,55 @@
 <div class="container">
+      <div class="main">
 
-  <div class="main">
-    <h1>Best Scores</h1>
-    <hr>
-    <div class="row">
-        <div class="col-md-3">                      
-              <p>Player Name</p>
-        </div>
-        <div class="col-md-3">
-              <p>HP</p>
-        </div>   
-        <div class="col-md-3">                      
-              <p>Wins</p>
-        </div>
-        <div class="col-md-3">
-              <p>Defeats</p>
-        </div>                          
-    </div>   
-    <hr>
-    <div *ngFor="let score of playerScores; let odd=odd; let even=even" >
-      <div [ngClass]="{ odd: odd, even: even }"  class="row">
-          <div class="col-md-3">     
-              {{score.name}}
-          </div>
-          <div class="col-md-3">
-              {{score.hp}}
-          </div>   
-          <div class="col-md-3">  
-              {{score.wins}}
-        </div>
-        <div class="col-md-3">
-              {{score.defeats}}
-        </div>   
-      </div>                         
-    </div> 
-    <div *ngIf="!playerScores" class="odd"><i>There are no scores to show!</i></div>  
-    <hr>
-    <div>                  
-        <button type="button" class="btn btn-primary" (click)="back()">Back</button>
-        <button type="button" class="btn btn-primary" (click)="setScore()">Save</button>
-        <button type="button" class="btn btn-danger" (click)="cleanScores()">Clean</button>                     
-    </div>      
-  </div>
+            <h1>Best Scores</h1>
 
+            <hr>
+
+            <div class="row">
+                        <div class="col-md-3">                      
+                              <p>Player Name</p>
+                        </div>
+                        <div class="col-md-3">
+                              <p>HP</p>
+                        </div>   
+                        <div class="col-md-3">                      
+                              <p>Wins</p>
+                        </div>
+                        <div class="col-md-3">
+                              <p>Defeats</p>
+                        </div>                          
+            </div>  
+
+            <hr>
+
+            <div *ngFor="let score of playerScores; let odd=odd; let even=even" >
+                        <div [ngClass]="{ odd: odd, even: even }"  class="row">
+                              <div class="col-md-3">     
+                                    {{score.name}}
+                              </div>
+                              <div class="col-md-3">
+                                    {{score.hp}}
+                              </div>   
+                              <div class="col-md-3">  
+                                    {{score.wins}}
+                              </div>
+                              <div class="col-md-3">
+                                    {{score.defeats}}
+                              </div>   
+                        </div>                         
+            </div>
+            
+            <div *ngIf="!playerScores" class="odd">
+                        <i>There are no scores to show!</i>
+            </div> 
+
+            <hr>
+
+            <div>                  
+                  <button type="button" class="btn btn-primary" (click)="back()">Back</button>
+                  <button type="button" class="btn btn-danger" (click)="cleanScores()">Clean</button>                     
+            </div>  
+
+      </div>
 </div>
 
