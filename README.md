@@ -41,7 +41,7 @@ Há duas possibilidades de controle do jogo:
 1. Atacar o inimigo por meio do botão de *Attack* ou;
 2. Utilizar as teclas "S" para o jogador 1 e tecla "L" para jogador 2.
 
-Ao sair do jogo é possível registrar o nome do jogador com maior número de vitórias. Tais vitórias podem ser consultadas no menu inicial, oção *Best Scores*
+Ao sair do jogo é possível registrar o nome do jogador com maior número de vitórias. Tais vitórias podem ser consultadas no menu inicial, opção *Best Scores*
 
 Tela Inicial da Solução
 
@@ -65,11 +65,11 @@ A estrutura principal das pastas e consequentemente dos componentes desenvolvido
     * **/components/pre-game** - *componente da tela inicial do jogo. Permite acesso as melhores pontuações (Best Scores) bem como à informações de como jogar (How to Play). Finalmente, também apresenta o botão de início (Start - componente flow-control-button) para iniciar o jogo.*
     * **/components/player** - *componente apresentado na tela do jogo (componente game) com as informações dos jogadores 1 e 2.*
     * **/components/how-to-play** - *componente que é acessado via tela inicial (componente pre-game) e exibe informações do jogo.*
-    * **/components/game** - *componente principal da solução. Apresenta a tela de jogo com os botões de ataque (componentes damage-button) e tela para reiniciar o jogo (componente flow-control-button). Possuí também o botão para sair do jogo.*   
+    * **/components/game** - *componente principal da solução. Apresenta a tela de jogo com os botões de ataque (componentes damage-button) e tela para reiniciar o jogo (componente flow-control-button). Possui também o botão para sair do jogo.*   
 
 ## Executando o Projeto
 
-Para executar o projeto é necessário instalar o Angular CLI em um ambiente pré configurado com [node.js](https://nodejs.org/en/download/) para isso deve-se executar o comando:
+Para executar o projeto é necessário instalar o Angular CLI em um ambiente pré-configurado com [node.js](https://nodejs.org/en/download/) para isso deve-se executar o comando:
 ```
 npm install -g @angular/cli
 ```
