@@ -44,9 +44,11 @@ Há duas possibilidades de controle do jogo:
 Ao sair do jogo é possível registrar o nome do jogador com maior número de vitórias. Tais vitórias podem ser consultadas no menu inicial, oção *Best Scores*
 
 Tela Inicial da Solução
+
 <img src="mock/tela1.jpg" alt="Tela Inicial" width="400">
 
 Tela do Jogo
+
 <img src="mock/tela2.jpg" alt="Tela do Jogo" width="400">
 
 
