@@ -43,11 +43,12 @@ Há duas possibilidades de controle do jogo:
 
 Ao sair do jogo é possível registrar o nome do jogador com maior número de vitórias. Tais vitórias podem ser consultadas no menu inicial, oção *Best Scores*
 
+Tela Inicial da Solução
 <img src="mock/tela1.jpg" alt="Tela Inicial" width="400">
-*Tela Inicial da Solução*
 
+Tela do Jogo
 <img src="mock/tela2.jpg" alt="Tela do Jogo" width="400">
-*Tela do Jogo*
+
 
 ## Informações Técnicas do Projeto
 
@@ -67,28 +68,25 @@ A estrutura principal das pastas e consequentemente dos componentes desenvolvido
 ## Executando o Projeto
 
 Para executar o projeto é necessário instalar o Angular CLI em um ambiente pré configurado com [node.js](https://nodejs.org/en/download/) para isso deve-se executar o comando:
-
 ```
 npm install -g @angular/cli
-´´´
+```
 
 Após instalação do Angular, acessar a pasta principal do projeto (*/desafio*) ou subpastas do mesmo e executar o comando abaixo para instalar as dependências:
-
 ```
 npm install
-´´´
+```
+
 
 Finalmente, para execução do jogo, utilizar o comando:
-
 ```
 ng serve -o
-´´´
+```
 
 Para execução dos testes utilizando Karma/Jasmine, já incluídos nos pacotes de dependência do projeto, utilizar o comando:
-
 ```
 npm test
-´´´
+```
 
 
 
