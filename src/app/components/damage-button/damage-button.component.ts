@@ -11,12 +11,14 @@ import { Player } from '../../schemas/player.schema';
 })
 export class DamageButtonComponent {
 
+  // Variável do tipo player que recbe o player que sofrerá dano
   @Input() public player : Player;
   @Input() public gameStarted : boolean;
+  // Variável que pausa a funçao de listener dos botões quand diálogos estiverem na tela
   @Input() public hasQuitDialog : boolean;
   @Output() public event: EventEmitter<any> = new EventEmitter();
 
-  private btnLabel : string = translations.buttons.playeraction;
+  public btnLabel : string = translations.buttons.playeraction;
 
   @HostListener('window:keypress', ['$event']) keyEvent(event: KeyboardEvent){
         if(this.hasQuitDialog === false){

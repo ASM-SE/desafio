@@ -9,7 +9,7 @@ import { translations } from '../../shared/services/translations.service';
 })
 export class HowToPlayComponent  {
 
-  private btnBack : string = translations.buttons.back;
+  public btnBack : string = translations.buttons.back;
 
   constructor(private router: Router) { }
 

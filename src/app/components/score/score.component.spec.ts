@@ -44,19 +44,19 @@ describe('ScoreComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Devera criar o component ScoreComponent - tela de best scores do jogo', () => {
+  it('Deve criar o component ScoreComponent - tela de best scores do jogo', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Devera declarar a variavel playerScores do tipo `Score[]`', () => {
+  it('Deve declarar a variavel playerScores do tipo `Score[]`', () => {
     expect(typeof (component.playerScores)).toBeTruthy('Score[]');
   });
 
-  it('Devera verificar se a função back() foi criada', () => {
+  it('Deve verificar se a função back() foi criada', () => {
     expect(component.back).toHaveBeenCalled;
   });
 
-  it('Devera dizer ao router para navergar para `home` quando back() for chamado/clicado',
+  it('Deve dizer ao router para navergar para `home` quando back() for chamado/clicado',
   inject([Router], (router: Router) => { 
     const spy = spyOn(router, "navigate");
     component.back(); 
@@ -64,11 +64,11 @@ describe('ScoreComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['home']);
   }));
 
-  it('Devera verificar se a função getScores() retorna uma array de scores', () => {
+  it('Deve verificar se a função getScores() retorna uma array de scores', () => {
     expect(component.getScores).toBeTruthy('Array<Score>');
   });
 
-  it('Devera verificar se a função cleanScores() foi criada', () => {
+  it('Deve verificar se a função cleanScores() foi criada', () => {
     expect(component.cleanScores).toHaveBeenCalled;
   });
   

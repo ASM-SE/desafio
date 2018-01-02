@@ -10,15 +10,18 @@ import { translations } from '../../shared/services/translations.service';
 
   export class FlowControlButtonComponent {
 
-  
+  // Variável que recebe o estado do jogo
   @Input() public gameStarted : boolean;
+  // Variável que recebe o vencedor
   @Input() public winner : string;
+  // Variável que emite o eveno de iniciar e finalizar o jogo
   @Output() public event: EventEmitter<any> = new EventEmitter();
 
-  private btnLabel : string;
+  public btnLabel : string;
 
   constructor(private sanitizer : DomSanitizer) { }
 
+  // Função que altera o estilo do botão de acordo com o estado do jogo
   private setStyle(gameStatus : boolean, winner : string) {
       let classStyle : string;
       if((gameStatus != true)&&(!winner)){   
@@ -34,6 +37,7 @@ import { translations } from '../../shared/services/translations.service';
       return this.sanitizer.bypassSecurityTrustStyle(classStyle);     
   }
 
+  // Função que executa o início ou o reinício do jogo de acordo com seu estado
   public action(gameStatus : boolean) : void {
       if(gameStatus != true){
           this.start();
@@ -42,10 +46,12 @@ import { translations } from '../../shared/services/translations.service';
       }
   }
 
+  // Função que inicia o jogo
   public start() : void {
       this.event.emit(true);  
   }
 
+  // Função que reinicia o jogo
   public restart() : void {
       this.event.emit(true);
   }

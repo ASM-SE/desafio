@@ -10,13 +10,6 @@ import { Router, NavigationStart } from '@angular/router';
 export class AppComponent {
   title = 'app';
 
-  constructor(private router: Router){
-
-  }
-
-  editUser(){
-    this.router.navigate(['/game']);
-}
-
+  constructor(){ }
 
 }

@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { translations } from '../../shared/services/translations.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Player } from '../../schemas/player.schema';
 
 @Component({
@@ -7,11 +6,13 @@ import { Player } from '../../schemas/player.schema';
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
-export class PlayerComponent {
+export class PlayerComponent implements OnInit {
 
   //Variável que recebe o jogador para ser apresentado na sua respectiva directiva na tela do jogo
   @Input() public player : Player;
 
-  public btnBack : string = translations.buttons.back;
+  constructor() {}
+  
+  ngOnInit() {}
 
 }

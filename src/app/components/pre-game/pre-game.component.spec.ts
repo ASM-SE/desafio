@@ -40,42 +40,42 @@ describe('PreGameComponent', () => {
     fixture.detectChanges();
   });
 
-  it('Devera criar o component PreGameComponent - tela inicial do jogo', () => {
+  it('Deve criar o component PreGameComponent - tela inicial do jogo', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Devera declarar a variavel gameStarted do tipo `boolean`', () => {
+  it('Deve declarar a variavel gameStarted do tipo `boolean`', () => {
     expect(typeof (component.gameStarted)).toBeTruthy('boolean');
   });
 
-  it('Devera declarar a variavel btnInstructions do tipo `string`', () => {
+  it('Deve declarar a variavel btnInstructions do tipo `string`', () => {
     expect(component.btnInstructions).toBeTruthy();
     expect(typeof (component.btnInstructions)).toBeTruthy('string');
   });
 
-  it('Devera declarar a variavel btnScores do tipo `string`', () => {
+  it('Deve declarar a variavel btnScores do tipo `string`', () => {
     expect(component.btnInstructions).toBeTruthy();
     expect(typeof (component.btnInstructions)).toBeTruthy('string');
   });
 
-  it('Devera declarar a variavel imgLogo do tipo `string`', () => {
+  it('Deve declarar a variavel imgLogo do tipo `string`', () => {
     expect(component.btnInstructions).toBeTruthy();
     expect(typeof (component.btnInstructions)).toBeTruthy('string');
   });
   
-  it('Devera verificar se a função goGame foi criada', () => {
+  it('Deve verificar se a função goGame foi criada', () => {
     expect(component.goGame).toHaveBeenCalled;
   });
 
-  it('Devera verificar se a função showScores foi criada', () => {
+  it('Deve verificar se a função showScores foi criada', () => {
     expect(component.showScores).toHaveBeenCalled;
   });
 
-  it('Devera verificar se a função showHowToPlay foi criada', () => {
+  it('Deve verificar se a função showHowToPlay foi criada', () => {
     expect(component.showHowToPlay).toHaveBeenCalled;
   });
 
-  it('Devera dizer ao router para navergar para `game` quando goGame() for chamado/clicado',
+  it('Deve dizer ao router para navergar para `game` quando goGame() for chamado/clicado',
   inject([Router], (router: Router) => { 
     const spy = spyOn(router, "navigate");
     component.goGame(true); 
@@ -83,7 +83,7 @@ describe('PreGameComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['game']);
   }));
 
-  it('Devera dizer ao router para navergar para `scores` quando showScores() for chamado/clicado',
+  it('Deve dizer ao router para navergar para `scores` quando showScores() for chamado/clicado',
   inject([Router], (router: Router) => { 
     const spy = spyOn(router, "navigate");
     component.showScores(); 
@@ -91,7 +91,7 @@ describe('PreGameComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['scores']);
   }));
 
-  it('Devera dizer ao router para navergar para `scores` quando showScores() for chamado/clicado',
+  it('Deve dizer ao router para navergar para `scores` quando showScores() for chamado/clicado',
   inject([Router], (router: Router) => { 
     const spy = spyOn(router, "navigate");
     component.showHowToPlay(); 
